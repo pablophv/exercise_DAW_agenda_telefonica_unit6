@@ -83,7 +83,7 @@ public class Agenda {
         }
     }
 
-    public int espacioEnAgenda() {
+    public int espacioEnAgenda(Contacto... contactos) {
         int contadorEspacioAgenda = 0;
         for (int i = 0; i < contactosAgenda.length; i++) {
             if (contactosAgenda[i] == null) {
@@ -129,7 +129,6 @@ public class Agenda {
         BUENAS JAVIER TAL Y COMO HE PLANTEADO EL EJERCICIO ESTE METODO PARA ORDENAR LOS CONTACTOS ALFABETICAMENTE
         NO ME FUNCIONA, QUERIA SABER SI HAY ALGUNA MANERA DE PODER ORDENARLOS CON ESTA FORMA DE PLANTEAR EL EJERCICIO
 
-
          for (int i = 0; i < contactosAgenda.length; i++) {
             if(contactosAgenda[i] != null){
                 System.out.println(contactosAgenda[i]);
@@ -139,11 +138,27 @@ public class Agenda {
         */
         public void mostrarAgenda() {
 
-                for (int j = 0; j < contactosAgenda.length; j++) {
-                    if(contactosAgenda[j] != null){
-                        System.out.println(contactosAgenda[j]);
+            for (int i = 0; i < contactosAgenda.length; i++) {
+
+                if(contactosAgenda[i] != null) {
+                    System.out.println(contactosAgenda[i].toString());
+                }
+
+            }
+            /*
+            Contacto aux;
+             for (int i = 0; i < contactosAgenda.length-1; i++) {
+                for (int j = 0; j < contactosAgenda.length-1; j++) {
+                    if(contactosAgenda[j].getNombre().compareTo(contactosAgenda[j+1].getNombre())>0){
+                        aux = contactosAgenda[j];
+                        contactosAgenda[j] = contactosAgenda[j+1];
+                        contactosAgenda[j+1] = aux;
+
                     }
                 }
+            }
+             */
+
 
 
         }

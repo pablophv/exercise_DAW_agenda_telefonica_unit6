@@ -9,7 +9,9 @@ public class Main {
         Agenda agenda = new Agenda(5);
         int opcion;
         Contacto contacto;
+        Contacto [] contactos;
         do {
+            System.out.println();
             System.out.println("\t.:MENU:.");
             System.out.println("1. Añadir contacto");
             System.out.println("2. Eliminar contacto");
@@ -21,7 +23,6 @@ public class Main {
 
             switch (opcion) {
                 case 1:
-
                     System.out.print("Introduzca el nombre del contacto: ");
                     nombre = ent.next();
                     System.out.print("Introduzca el numero de telefono: ");

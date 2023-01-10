@@ -29,7 +29,7 @@ public class Contacto {
     }
 
     public String toString(){
-        return "Nombre: "+nombre+"\nNumero: "+numero;
+        return nombre+" - "+numero;
     }
 
     public boolean existe(Contacto c){//SI EL CONTACTO EXISTE NOS DEVUELVE VERDADERO Y SI NO DEVOLVERA FALSO
