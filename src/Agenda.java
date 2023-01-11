@@ -92,61 +92,27 @@ public class Agenda {
         }
         return contadorEspacioAgenda;
     }
-/*
-    public void mostrarAgenda() {//UTILIZAMOS EL METODO BURBUJA
-        //EN ESTE METODO RECORREMOS EL ARRAY CON UN FOR Y CADA VEZ QUE SE HAGA UN INTERCAMBIO DE VALORES EN LAS VARIABLES SUBIRA NUESTRO CONTADOR
-        //SE RECORRERA EL ARRAY HASTA EL QUE EL CONTADOR SEA IGUAL A 0, LO QUE QUERRA DECIR QUE EL ARRAY YA ESTA ORDENADO
-        //DEBEMOS REINICIAR EL CONTADORDEINTERCAMBIOS CADA VEZ QUE SE RECORRE EL ARRAY.
 
-        //METODO COMPARETOIGNORECASE
+        //METODO COMPARETO
         //-Si la cadena argumento es igual a esta cadena, devuelve un valor de 0
         //-Si esta cadena es menor que el parametro de cadena, devuelve un valor iferior a cero
         //-Si esta cadena es mayor que el parametro de cadena, se devuelve un valor mayor que 0(esta es la que usamos aqui abajo)
-
-
-        int contadorIntercambios = 0;
-        boolean ordenado = false;
-
-        while (!ordenado){
-            for (int i = 0; i < contactosAgenda.length-1; i++) {
-                if(contactosAgenda[i].getNombre().compareToIgnoreCase(contactosAgenda[i+1].getNombre()) > 0){
-                    String aux = contactosAgenda[i].getNombre();
-                    contactosAgenda[i] = contactosAgenda[i+1];
-                    aux = contactosAgenda[i].getNombre();
-                    //CUANDO EL CONTADOR
-                    contadorIntercambios++;
-                }
-
-                if (contadorIntercambios == 0){
-                    ordenado = true;
-                }
-                contadorIntercambios = 0;
-            }
-        }
-
-        //---------------------------------------------------------------------------------------------------------
-        /*
-        BUENAS JAVIER TAL Y COMO HE PLANTEADO EL EJERCICIO ESTE METODO PARA ORDENAR LOS CONTACTOS ALFABETICAMENTE
-        NO ME FUNCIONA, QUERIA SABER SI HAY ALGUNA MANERA DE PODER ORDENARLOS CON ESTA FORMA DE PLANTEAR EL EJERCICIO
-
-         for (int i = 0; i < contactosAgenda.length; i++) {
-            if(contactosAgenda[i] != null){
-                System.out.println(contactosAgenda[i]);
-            }
-        }
-
-        */
         public void mostrarAgenda() {
-
+/*
             for (int i = 0; i < contactosAgenda.length; i++) {
 
                 if(contactosAgenda[i] != null) {
                     System.out.println(contactosAgenda[i].toString());
                 }
-
             }
-            /*
-            Contacto aux;
+
+
+            BUENAS JAVIER HE INTENTADO ORDENAR LOS CONTACTOS CON EL METODO BURBUJA PERO NO ME LO PERMITE, NO SE SI ES PORQUE
+            TENGO ALGUN PROBLEMA CON EL CONSTRUCTOR DE LA CLASE AGENDA O PORQUE SIMPLEMENTE NO SE PUEDE HACER ASI,
+            AL EJECUTARLO AÑADO VARIOS CONTACTOS Y CUANDO UTILIZO LA OPCION MOSTRAR CONTACTOS ME DA ESTE ERROR:
+             Cannot invoke "Contacto.getNombre()" because "this.contactosAgenda[...]" is null
+            */
+             Contacto aux;
              for (int i = 0; i < contactosAgenda.length-1; i++) {
                 for (int j = 0; j < contactosAgenda.length-1; j++) {
                     if(contactosAgenda[j].getNombre().compareTo(contactosAgenda[j+1].getNombre())>0){
@@ -157,16 +123,12 @@ public class Agenda {
                     }
                 }
             }
-             */
 
-
+            for (int i = 0; i < contactosAgenda.length; i++) {
+            if(contactosAgenda[i] != null){
+                System.out.println(contactosAgenda[i]);
+            }
+           }
 
         }
-
-
-
-
-
-
     }
-
