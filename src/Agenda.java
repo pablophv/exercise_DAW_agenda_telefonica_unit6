@@ -71,9 +71,13 @@ public class Agenda {
     }
 
     public void buscarContacto(Contacto c) {
+        // BUSCAR CONTACTO ESTA BIEN IMPLEMENTADO SI QUIERES QUE FUNCIONE COMO EN MI SOLUCION SIMPLEMENTE
+        // SUSTITUYE EL EQUALS POR STARTSWITH, EN CASO DE TU IMPLEMENTACION EL NOMBRE A BUSCAR DEBE SER
+        // EXACTAMENTE IGUAL
+
         boolean encontrado = false;
         for (int i = 0; i < contactosAgenda.length; i++) {
-            if(contactosAgenda[i] != null && contactosAgenda[i].getNombre().equals(c.getNombre())){
+            if(contactosAgenda[i] != null && contactosAgenda[i].getNombre().startsWith(c.getNombre())){
                 encontrado = true;
                 System.out.println(contactosAgenda[i]);
             }
@@ -93,42 +97,35 @@ public class Agenda {
         return contadorEspacioAgenda;
     }
 
-        //METODO COMPARETO
-        //-Si la cadena argumento es igual a esta cadena, devuelve un valor de 0
-        //-Si esta cadena es menor que el parametro de cadena, devuelve un valor iferior a cero
-        //-Si esta cadena es mayor que el parametro de cadena, se devuelve un valor mayor que 0(esta es la que usamos aqui abajo)
-        public void mostrarAgenda() {
-/*
-            for (int i = 0; i < contactosAgenda.length; i++) {
-
-                if(contactosAgenda[i] != null) {
-                    System.out.println(contactosAgenda[i].toString());
-                }
-            }
-
-
-            BUENAS JAVIER HE INTENTADO ORDENAR LOS CONTACTOS CON EL METODO BURBUJA PERO NO ME LO PERMITE, NO SE SI ES PORQUE
-            TENGO ALGUN PROBLEMA CON EL CONSTRUCTOR DE LA CLASE AGENDA O PORQUE SIMPLEMENTE NO SE PUEDE HACER ASI,
-            AL EJECUTARLO AÑADO VARIOS CONTACTOS Y CUANDO UTILIZO LA OPCION MOSTRAR CONTACTOS ME DA ESTE ERROR:
-             Cannot invoke "Contacto.getNombre()" because "this.contactosAgenda[...]" is null
-            */
-             Contacto aux;
-             for (int i = 0; i < contactosAgenda.length-1; i++) {
-                for (int j = 0; j < contactosAgenda.length-1; j++) {
-                    if(contactosAgenda[j].getNombre().compareTo(contactosAgenda[j+1].getNombre())>0){
-                        aux = contactosAgenda[j];
-                        contactosAgenda[j] = contactosAgenda[j+1];
-                        contactosAgenda[j+1] = aux;
-
-                    }
-                }
-            }
-
-            for (int i = 0; i < contactosAgenda.length; i++) {
+    //METODO COMPARETO
+    //-Si la cadena argumento es igual a esta cadena, devuelve un valor de 0
+    //-Si esta cadena es menor que el parametro de cadena, devuelve un valor iferior a cero
+    //-Si esta cadena es mayor que el parametro de cadena, se devuelve un valor mayor que 0(esta es la que usamos aqui abajo)
+    public void mostrarAgenda() {
+        int numelementos=0;
+        for (int i = 0; i < contactosAgenda.length; i++) {
             if(contactosAgenda[i] != null){
-                System.out.println(contactosAgenda[i]);
+                numelementos++;
             }
-           }
-
         }
+
+        Contacto[] aux;
+        aux=Arrays.copyOf(contactosAgenda,numelementos);
+        Arrays.sort(aux);
+
+        for (int i = 0; i < aux.length; i++) {
+            System.out.println(aux[i]);
+            }
     }
+    // PARA ORDENAR SEGUN UN ALGORITMO DE ORDENACION DE LOS QUE HEMOS VISTO DEBERIAMOS POR EJEMPLO
+    // SACAR LOS NOMBRES DE LA AGENDA EN UN ARRAY DE STRINGS, ORDENAR POR EJEMPLO CON ARRAYS.SORT
+    // Y VOLVER A COLOCAR LOS OBJETOS EN UN ARRAY DE OBJETOS SEGUN LOS NOMBRES YA ORDENADOS.
+    //COMO ESTO ES MUY INEFICIENTE TE RECOMIENDO IMPLEMENTAR LA INTERFAZ COMPARABLE POR LA CLASE CONTACTO
+    // Y ORDENAR CON SORT.
+    // EL PROBLEMA ES QUE LE DAS AL ARRAY UN TAMAÑO FIJO Y AL UTILIZAR EL METODO SORT SE ENCUENTRA CON
+    // POSICIONES QUE APUNTAN A NULL Y SOLO FUNCIONA CUANDO EL ARRAY TIENE TODAS SUS POSICIONES COMPLETAS
+    // 5 REGISTROS
+    // PARA EVITAR ESO DEBES HACER CRECER EL ARRAY CADA VEZ QUE AÑADES UN NUEVO CONTACTO Y INICIALIZARLO CON
+    // 0 ELEMENTOS O BIEN LA SOLUCION QUE HE IMPLEMENTADO ABAJO CON UN ARRAY AUXILIAR
+    // AUNQUE ES MENOS EFICIENTE
+}

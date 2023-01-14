@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class Main {
@@ -8,8 +9,10 @@ public class Main {
         int numero;
         Agenda agenda = new Agenda(5);
         int opcion;
-        Contacto contacto;
-        Contacto [] contactos;
+        //Contacto contacto;
+        //Contacto [] contactos;
+        // El ARRAY DE OBJETOS DE LA CLASE CONTACTOS YA ESTA DECLARADO COMO ATRIBUTO DEL OBJETO AGENDA
+        // NO TIENES QUE DECLARARLO AQUI DE NUEVO
         do {
             System.out.println();
             System.out.println("\t.:MENU:.");
@@ -27,8 +30,8 @@ public class Main {
                     nombre = ent.next();
                     System.out.print("Introduzca el numero de telefono: ");
                     numero = ent.nextInt();
-                    contacto = new Contacto(nombre, numero);
-
+                    Contacto contacto = new Contacto(nombre, numero);
+                    //AQUI TE FALTA PONER DE QUE CLASE ES LA VARIABLE "contacto"
                     agenda.anadirContacto(contacto);
                     break;
                 case 2:
